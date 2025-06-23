@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake & Ladder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="ht">
+    <header>
+      <nav class="navbar">
+        <div class="logo"> 🎲 Snake & Ladder </div>
+
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#login">Login</a></li>
+            <li><a href="{{ url_for('game') }}">Play</a></li>
+            <li><a href="{{ url_for('history') }}">History</a></li>
+          </ul>
+          <button id="mode-toggle">🌙</button>
+        </div>
+      </nav>
+
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-text">
+          <h1>Welcome to <br> <span class="snake"> Snake & Ladder </span></h1>
+          <p>Experience the classic game in a modern way!</p>
+          <a href="{{ url_for('game') }}" class="neon-button">
+            GET STARTED
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+        <div class="hero-img">
+          <img src="{{ url_for('static', filename='images/Homesnake200px.png') }}" alt="Snake & Ladder" />
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About the Game</h2>
+    <p>
+      🎯 Snake & Ladder is a fun-filled, turn-based board game that originated in ancient India. It symbolizes
+      life's journey—full of ups and downs!
+    </p>
+    <div class="about-grid">
+      <div class="info-card">
+        <h3>🎲 How to Play</h3>
+        <ul>
+          <li>Each player takes turns rolling the dice.</li>
+          <li>Move forward based on the dice number.</li>
+          <li>If you land on a ladder, climb it.</li>
+          <li>If you land on a snake, slide down.</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h3>🧠 Strategy Tips</h3>
+        <ul>
+          <li>Play smart: watch your positions closely!</li>
+          <li>Don’t celebrate too early—snakes can surprise you.</li>
+          <li>Climb every ladder you can!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="fun-fact">
+      📜 <strong>Fun Fact:</strong> Originally called "Moksha Patam," the game was designed to teach
+      morals—ladders represented virtues and snakes represented vices.
+    </div>
+  </section>
+
+  <!--LOGIN SECTION -->
+
+  <div id="login" class="sec4">
+    <section class="login">
+      <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm" action="/login" method="POST">
+          <input type="text" id="username" name="username" placeholder="Username" required />
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password" placeholder="Password" required />
+            <span class="toggle-password" onclick="togglePassword()">👁️</span>
+          </div>
+
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+        <p id="message" style="color: red; margin-top: 10px;"></p>
+      </div>
+    </section>
+  </div>
+
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

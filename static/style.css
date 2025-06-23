@@ -1,0 +1,580 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  line-height: 1.6;
+}
+
+.ht {
+  height: 100vh;
+}
+
+
+/* Navbar */
+.navbar {
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4a4e69;
+  padding: 15px 30px;
+  color: white;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #f9c74f;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: #f9c74f;
+  font-weight: 600;
+}
+
+
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 10%;
+  background: linear-gradient(145deg, #e0f7fa, #fff);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #1d3557;
+}
+
+.snake {
+  color: #e63946;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* Neon Button with ONLY animated border */
+.neon-button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  color: #00bfff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: transparent;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 0 0 12px #ff007f;
+}
+
+/* Hover glow and fill */
+.neon-button:hover {
+  background-color: #ff007f;
+  color: rgb(7, 240, 240);
+  box-shadow: 0 0 25px #ff007f, 0 0 50px #ff007f, 0 0 100px #ff007f;
+}
+
+/* Animated border spans */
+.neon-button span {
+  position: absolute;
+  display: block;
+}
+
+/* Top */
+.neon-button span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff007f);
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+/* Right */
+.neon-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ff007f);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+/* Bottom */
+.neon-button span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(270deg, transparent, #ff007f);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+/* Left */
+.neon-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #ff007f);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+/* HERO IMAGE */
+.hero-img img {
+  width: 400px;
+  max-width: 100%;
+  border-radius: 20px;
+  animation: swingZoom 8s ease-in-out infinite;
+  transition: transform 0.4s ease, filter 0.3s, box-shadow 0.4s;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.35), 0 0 60px rgba(0, 255, 255, 0.15);
+  filter: brightness(1) contrast(1);
+}
+
+/* On hover: more glow, soft zoom */
+.hero-img img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.05) contrast(1.05);
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.6), 0 0 90px rgba(0, 255, 255, 0.4);
+}
+
+/* Improved soft swing + zoom effect */
+@keyframes swingZoom {
+  0% {
+    transform: scale(1.02) translateX(0px);
+  }
+
+  25% {
+    transform: scale(1.04) translateX(-6px);
+  }
+
+  50% {
+    transform: scale(1.06) translateX(6px);
+  }
+
+  75% {
+    transform: scale(1.04) translateX(-4px);
+  }
+
+  100% {
+    transform: scale(1.02) translateX(0px);
+  }
+}
+
+
+/* Dark mode styles for only the HERO section */
+.hero.dark-mode {
+  background: #111;
+  color: #f1f1f1;
+}
+
+.hero.dark-mode .neon-button {
+  color: #00f7ff;
+  box-shadow: 0 0 15px #ff007f;
+}
+
+.hero.dark-mode .neon-button:hover {
+  background-color: #ff007f;
+  color: #00f7ff;
+  box-shadow: 0 0 30px #ff007f, 0 0 60px #ff007f;
+}
+
+/* Position and style the mode toggle button */
+#mode-toggle {
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  color: #ff1493;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#mode-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* -------------------------- */
+
+/* ---------------------------------------- */
+
+
+
+/* About Section */
+.about {
+  padding: 60px 10%;
+  background-color: #f1faee;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2a9d8f;
+}
+
+.about p {
+  margin-bottom: 30px;
+}
+
+/* About Section Full Height */
+.about {
+  padding: 60px 10%;
+  background-color: #eefbea;
+  text-align: center;
+  height: 100vh;
+}
+
+/* Info Cards Layout */
+.about-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Info Cards Styling */
+.info-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+  flex: 1 1 300px;
+  max-width: 400px;
+  transition: transform 0.4s ease;
+}
+
+.info-card:hover {
+  transform: scale(1.05);
+  background-color: #fffacc;
+}
+
+
+.info-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0 0 0;
+}
+
+.info-card ul li {
+  position: relative;
+  padding-left: 1.8rem;
+  /* Space for tick + margin */
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+
+.info-card ul li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 1rem;
+  color: #2a9d8f;
+}
+
+
+/* Fun Fact Box */
+.fun-fact {
+  margin-top: 40px;
+  padding: 20px 28px;
+  background: linear-gradient(135deg, #a7e9c0, #c2e9d7);
+  color: #333;
+  border-radius: 12px;
+  border-left: 6px solid #38b000;
+  box-shadow: 0 4px 20px rgba(0, 128, 0, 0.1);
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+}
+
+/* On hover: switch border to right */
+.fun-fact:hover {
+  border-left: none;
+  border-right: 6px solid #38b000;
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #f2fff9, #e0f7e9);
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Login Section */
+.sec4 {
+  height: 100vh;
+  background: url("images/bgsnake.png") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.login-box {
+  margin-top: 38px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  min-width: 340px;
+  min-height: 360px;
+  /* Ensures it's never too small */
+  color: #fff;
+  animation: fadeIn 0.8s ease;
+  transition: none;
+  /* Prevent expansion/compression animation */
+  overflow: hidden;
+}
+
+/* Heading */
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00fff0;
+}
+
+/* Input Fields */
+.login-box input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.input-group {
+  margin-bottom: 18px;
+  position: relative;
+}
+
+/* Placeholder Text */
+.login-box input::placeholder {
+  color: #ccf;
+  opacity: 0.8;
+}
+
+/* Focus effect (neon glow) */
+.login-box input:focus {
+  border: 1.5px solid #00f7ff;
+  box-shadow: 0 0 8px #00f7ff, inset 0 0 4px rgba(0, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+/* Password wrapper */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Eye icon inside the input */
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #888;
+  transition: color 0.3s;
+}
+
+.toggle-password:hover {
+  color: #00f7ff;
+}
+
+
+.login-btn {
+  width: 100%;
+  margin-top: 35px;
+  padding: 12px;
+  background-color: #00fff0;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  animation: neonPulse 2s infinite ease-in-out;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #00c9c9;
+  color: #111;
+}
+
+
+
+/* Neon pulse animation */
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 10px #00fff0, 0 0 30px #00fff0;
+  }
+
+  50% {
+    box-shadow: 0 0 20px #00fff0, 0 0 40px #00fff0;
+  }
+
+  100% {
+    box-shadow: 0 0 10px #00fff0, 0 0 30px #00fff0;
+  }
+}
+
+/* Shake animation */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-8px);
+  }
+
+  40% {
+    transform: translateX(8px);
+  }
+
+  60% {
+    transform: translateX(-6px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

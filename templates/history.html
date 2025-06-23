@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <title>{{ username|capitalize }}'s Game History</title>
+
+  <!-- ✅ Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      /* Dark gradient */
+      background-size: 400% 400%;
+      animation: gradientFlow 12s ease infinite;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    @keyframes gradientFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .glass-box {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 40px 30px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      max-width: 500px;
+      width: 100%;
+      color: #f1f1f1;
+    }
+
+    h2 {
+      font-weight: 600;
+    }
+
+    .fs-5 p {
+      margin-bottom: 10px;
+    }
+
+    .fs-5 p span {
+      font-weight: bold;
+      font-size: 22px;
+      color: #00ff55;
+    }
+
+    .fs-5 p:last-child span {
+      color: #ec0c0c;
+    }
+
+    .btn-outline-light:hover {
+      background-color: #00ff55;
+      color: #000;
+      border-color: #00ff55;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="glass-box text-center">
+      <h2 class="mb-4">🎮 {{ username|capitalize }}'s Game History</h2>
+
+      <div class="fs-5">
+        <p>🎯 <strong>Total Wins:</strong> <span class="text-success">{{ history.win or 0 }}</span></p>
+        <p>💀 <strong>Total Losses:</strong> <span class="text-danger">{{ history.loss or 0 }}</span></p>
+
+      </div>
+
+      <a href="{{ url_for('game') }}" class="btn btn-outline-light mt-4" style="transition: 0.3s ease;">🔁 Back to
+        Game</a>
+
+    </div>
+  </div>
+
+  <!-- ✅ Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
