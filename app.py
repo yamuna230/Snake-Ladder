@@ -11,7 +11,7 @@ db = mysql.connector.connect(
     host="localhost",
     user="root",
     password="admin",
-    database="snake_ladder_db"
+    database="snake_ladder"
 )
 cursor = db.cursor()
 
